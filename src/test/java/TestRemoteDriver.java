@@ -10,7 +10,7 @@ import java.net.URL;
 
 public class TestRemoteDriver {
 
-    @Test
+//    @Test
     public void testAlert() throws Exception {
         System.setProperty("webdriver.chrome.driver", "C:/drivers/chromedriver.exe");
         ChromeOptions cap = new ChromeOptions();

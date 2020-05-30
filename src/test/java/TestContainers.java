@@ -6,11 +6,11 @@ import org.testcontainers.containers.BrowserWebDriverContainer;
 
 public class TestContainers {
 
-    @Rule
+//    @Rule
     public BrowserWebDriverContainer chromeContainer = new BrowserWebDriverContainer()
                     .withCapabilities(new FirefoxOptions());
 
-    @Test
+//    @Test
     public void testA() throws InterruptedException {
         chromeContainer.start();
         WebDriver driver = chromeContainer.getWebDriver();

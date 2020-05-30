@@ -20,9 +20,6 @@ import java.net.URL;
 @Profile("web")
 @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
 public class BeanConfigWeb {
-    public BeanConfigWeb() {
-        System.out.println("web");
-    }
 
     @Bean(value = "firefox")
     public WebDriver driverServiceFirefox() {
