@@ -21,17 +21,17 @@ import java.net.URL;
 @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
 public class BeanConfigWeb {
 
-//    @Bean(value = "firefox")
-//    public WebDriver driverServiceFirefox() {
-//        WebDriverManager.firefoxdriver().setup();
-//        return new FirefoxDriver();
-//    }
-//
-    @Bean(value = "chrome")
-    public WebDriver driverServiceChrome() {
-        WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+    @Bean(value = "firefox")
+    public WebDriver driverServiceFirefox() {
+        WebDriverManager.firefoxdriver().setup();
+        return new FirefoxDriver();
     }
+//
+//    @Bean(value = "chrome")
+//    public WebDriver driverServiceChrome() {
+//        WebDriverManager.chromedriver().setup();
+//        return new ChromeDriver();
+//    }
 
 //    @Bean(value = "chrome")
 //    public WebDriver driverServiceChrome() throws MalformedURLException {
