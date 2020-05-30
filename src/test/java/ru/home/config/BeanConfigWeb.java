@@ -30,7 +30,7 @@ public class BeanConfigWeb {
     @Bean(value = "chrome")
     public WebDriver driverServiceChrome() {
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+        return new ChromeDriver(new ChromeOptions().addArguments("--disable-dev-shm-usage"));
     }
 
 //    @Bean(value = "chrome")
