@@ -30,7 +30,7 @@ public class BeanConfigWeb {
     @Bean(value = "chrome")
     public WebDriver driverServiceChrome() {
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver(new ChromeOptions().addArguments("--disable-extensions","--start-maximized","--disable-gpu","--no-sandbox","--disable-dev-shm-usage","--headless"));
+        return new ChromeDriver(new ChromeOptions().addArguments("--disable-extensions","--start-maximized","--disable-gpu","--no-sandbox","--disable-dev-shm-usage","--remote-debugging-port=9222"));
     }
 
 //    @Bean(value = "chrome")
