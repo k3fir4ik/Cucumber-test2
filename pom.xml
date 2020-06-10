@@ -12,7 +12,7 @@
         <cucumber.version>4.3.1</cucumber.version>
         <spring.version>5.0.8.RELEASE</spring.version>
         <aspectj.version>1.9.4</aspectj.version>
-        <fork.count>1</fork.count>
+        <fork.count>2</fork.count>
     </properties>
 
     <build>
@@ -40,23 +40,29 @@
                 <version>3.0.0-M3</version>
                 <configuration>
                     <argLine>
+                        -Djdk.net.URLClassPath.disableClassPathURLCheck=true
                         -Xmx8G
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-                    <systemPropertyVariables>
-                        <dataproviderthreadcount>${fork.count}</dataproviderthreadcount>
-                        <parallel>methods</parallel>
-                    </systemPropertyVariables>
-
+                    <parallel>all</parallel>
+<!--                    <rerunFailingTestsCount>1</rerunFailingTestsCount>-->
+                    <threadCountMethods>2</threadCountMethods>
+                    <reuseForks>true</reuseForks>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <reuseForks>false</reuseForks>
+                    <reuseForks>true</reuseForks>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-junit4</artifactId>
+            <version>3.0.0-M3</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

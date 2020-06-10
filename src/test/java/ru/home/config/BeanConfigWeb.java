@@ -30,7 +30,8 @@ public class BeanConfigWeb {
     @Bean(value = "chrome")
     public WebDriver driverServiceChrome() {
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver(new ChromeOptions().addArguments("--headless"));
+        return new ChromeDriver(new ChromeOptions());
+//        return new ChromeDriver(new ChromeOptions().addArguments("--headless"));
     }
 
 //    @Bean(value = "chrome")

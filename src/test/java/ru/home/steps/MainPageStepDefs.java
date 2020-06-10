@@ -7,6 +7,7 @@ import cucumber.api.java.en.When;
 //import cucumber.api.java.ru.Дано;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.home.service.MainPageService;
@@ -49,6 +50,16 @@ public class MainPageStepDefs {
 
     @When("I search {string}")
     public void iSearch(String searchTerm) {
+    }
+
+    @When("simple assert true")
+    public void simpleAssertTrue() {
+        Assert.assertTrue(true);
+    }
+
+    @When("simple assert false")
+    public void simpleAssertFalse() {
+        Assert.assertTrue(false);
     }
 
 //    @Дано("открыть главную страницу Habr")
