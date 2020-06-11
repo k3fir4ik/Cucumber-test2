@@ -6,12 +6,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.context.annotation.*;
 import org.springframework.test.annotation.DirtiesContext;
 import org.testcontainers.containers.BrowserWebDriverContainer;
 
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 
 @Configuration
@@ -28,10 +30,14 @@ public class BeanConfigWeb {
 //    }
 //
     @Bean(value = "chrome")
-    public WebDriver driverServiceChrome() {
-        WebDriverManager.chromedriver().setup();
-        return new ChromeDriver(new ChromeOptions());
-//        return new ChromeDriver(new ChromeOptions().addArguments("--headless"));
+    public WebDriver driverServiceChrome() throws MalformedURLException {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("chrome");
+        capabilities.setVersion("83");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+
+        return new RemoteWebDriver(URI.create("http://192.168.0.103:4444/wd/hub/").toURL(), capabilities);
     }
 
 //    @Bean(value = "chrome")

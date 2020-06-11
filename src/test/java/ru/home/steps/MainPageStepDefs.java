@@ -5,6 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 //import cucumber.api.java.ru.Дано;
+import io.qameta.allure.Allure;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
@@ -60,6 +61,11 @@ public class MainPageStepDefs {
     @When("simple assert false")
     public void simpleAssertFalse() {
         Assert.assertTrue(false);
+    }
+
+    @And("sleep {int} seconds")
+    public void sleep(int sec) throws InterruptedException {
+        Thread.sleep(sec * 1000);
     }
 
 //    @Дано("открыть главную страницу Habr")

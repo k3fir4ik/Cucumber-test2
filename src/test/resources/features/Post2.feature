@@ -4,3 +4,4 @@ Feature: Each post has own web page 2
     Given I am on main page
     When to open 3 post
     When simple assert false
+#    And sleep 30 seconds
