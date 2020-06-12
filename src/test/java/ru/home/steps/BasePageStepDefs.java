@@ -46,8 +46,7 @@ public class BasePageStepDefs {
         byteArrayOutputStream.flush();
         byte[] imageBytes = byteArrayOutputStream.toByteArray();
         String fileName = String.valueOf("target" + File.separator + "allure-results" + File.separator + UUID.randomUUID() + ".png");
-        File file = new File(fileName);
-        try (OutputStream outputStream = new FileOutputStream(file)) {
+        try (OutputStream outputStream = new FileOutputStream(fileName)) {
             byteArrayOutputStream.writeTo(outputStream);
         }
         byteArrayOutputStream.flush();
