@@ -29,20 +29,19 @@ public class BeanConfigWeb {
 //        return new FirefoxDriver();
 //    }
 
-    @Bean(value = "chrome")
-    public WebDriver driverServiceChrome() throws MalformedURLException {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName("chrome");
-        capabilities.setVersion("83");
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
-        return new RemoteWebDriver(URI.create("http://192.168.0.101:4444/wd/hub/").toURL(), capabilities);
-    }
-
 //    @Bean(value = "chrome")
 //    public WebDriver driverServiceChrome() throws MalformedURLException {
-//        WebDriverManager.chromedriver().setup();
-//        return new ChromeDriver();
-//        return new RemoteWebDriver(new URL("http://192.168.0.102:4444/wd/hub/"), new ChromeOptions());
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setBrowserName("chrome");
+//        capabilities.setVersion("83");
+//        capabilities.setCapability("enableVNC", true);
+//        capabilities.setCapability("enableVideo", false);
+//        return new RemoteWebDriver(URI.create("http://192.168.0.101:4444/wd/hub/").toURL(), capabilities);
 //    }
+
+    @Bean(value = "chrome")
+    public WebDriver driverServiceChrome() throws MalformedURLException {
+        WebDriverManager.chromedriver().setup();
+        return new ChromeDriver();
+    }
 }

@@ -29,7 +29,7 @@ public class BasePageStepDefs {
 
     @After
     public void tearDown() throws IOException {
-        makeScreenShot();
+//        makeScreenShot();
         Driver.clearDriver();
     }
 
